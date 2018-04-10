@@ -3,9 +3,9 @@ import time
 word = "a"
 shield = 5
 
-def print_on_a_timer(time, lines):
-    for time, lines in zip(time, lines):
-        time.sleep(time)
+def print_on_a_timer(times, lines):
+    for times, lines in zip(times, lines):
+        time.sleep(times)
         print(lines)
 
 #This function is the introduction to the program
@@ -21,8 +21,6 @@ print_on_a_timer(time, text)
 
 #The main function
 def main():
-    #This will trigger the introduction
-    intro()
     shield1= 5
     word1 = "a"
     while True:
@@ -243,5 +241,25 @@ def treasurechest(shield):
                 print ("A goblin is in the chest and says the following...")
                 time.sleep(2)
                 goblin()
+#IDEA
+def monster_room():
+    print "You have stumbled into a dark room with a giant, but friendly, monster."
+    print "There are four doors:"
+    print "One straight ahead, one to your right, one to your left, and the one you just entered through."
+    print "Which door would you like to choose?"
 
+    door = input("> ")
+
+    if "left" in door:
+        dead("The door magically recedes into the wall behind you and you find yourself forever trapped in a black room with no doors, no windows, and no hope of escape.")
+    elif "right" in door:
+        monkey_room()
+    elif "straight" in door:
+        dead("You step into the abyss and fall through nothingness to your certain death.")
+    else:
+        print "You found a magical shortcut to the Treasure Room!"
+        treasure_room()
+                
+#This will trigger the introduction
+intro()
 main()
